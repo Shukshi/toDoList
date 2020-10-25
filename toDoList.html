@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<style>
+		body {
+            margin: 0;
+            min-width: 250px;
+        }
+		* {
+            box-sizing: border-box;
+        }
+		h1{
+			text-align: center;
+			color: white;
+		}
+		#header{
+			position: relative;
+			background-color: #f44336;
+            padding: 30px 40px;
+            color: white;
+		}
+		#input{
+			background: white;
+			width: 70%;
+			height: 50px;
+			border: 0px;
+		}
+		#addBtn{
+			  background-color: #d9d9d9;
+              color: #555;
+              float: right;
+              text-align: center;
+              width: 30%;
+              height: 50px;
+              cursor: pointer;
+              font-size: 20px;
+
+		}
+		#addBtn:hover{
+			background-color: #bbb;;
+		}
+		#myUL{
+			margin: 0;
+			border: 0;
+			width: 100%;
+			padding: 0;
+		}
+		ul li{
+			width: 100%;
+			background-color: #eee;
+			cursor: pointer;
+			margin: 0;
+			border: 0;
+			padding: 0;
+			height: 30px;
+			list-style-type: none;
+		}
+		ul li:nth-child(odd){
+			background-color: #f9f9f9;
+		}
+		ul li:hover{
+			background-color: #ddd;
+		}
+		ul li.checked {
+           background: #888;
+           color: #fff;
+           text-decoration: line-through;
+         }
+         #cross{
+         	text-align: center;
+         	color: #797979;
+         	width: 30px;
+         	float: right;
+         	padding: 0;
+         	border: 0;
+         	height: 30px;
+         }
+         #cross:hover{
+         	background-color: #f44336;
+            color: white;
+         }
+	</style>
+</head>
+<body>
+	<div id = "header">
+	    <h1>My To-Do List</h1>
+	    <input type="text" id = "input" placeholder="Title...">
+	    <span onclick="newElement()" id="addBtn"> <br> Add</span>
+	</div>
+	<ul id = "myUL">
+		<li>Hit the gym. <span id = "cross"> &#10006 </span></li>
+		<li>Study for min 4 hours.<span id = "cross"> &#10006 </span> </li>
+	</ul>
+</body>
+<script>
+	function newElement(){
+		var li = document.createElement("li"); /* new element created */
+        var inputValue = document.getElementById("input").value; /* value retrieved */
+        var t = document.createTextNode(inputValue); /* text value created*/
+        /*console.log(inputValue);
+        console.log(t);*/
+        li.appendChild(t); /*appended this text in new element */
+        var y = document.getElementById("cross");
+        var y1 = y.cloneNode(true);
+        li.appendChild(y1);
+        if (inputValue === '') {
+           alert("You must write something!");
+        } else {
+           document.getElementById("myUL").appendChild(li);
+        }
+        document.getElementById("input").value = "";
+	}
+	var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+       ev.target.classList.toggle('checked'); 
+    });
+    var c = document.getElementById("cross");
+    var m;
+    for (m = 0; m < closebtns.length; m++) {
+       closebtns[m].addEventListener('click', function() {
+       this.parentElement.style.display = 'none';
+    });
+</script>
+</html>
