@@ -89,8 +89,8 @@
 	    <span onclick="newElement()" id="addBtn"> <br> Add</span>
 	</div>
 	<ul id = "myUL">
-		<li>Hit the gym. <span id = "cross"> &#10006 </span></li>
-		<li>Study for min 4 hours.<span id = "cross"> &#10006 </span> </li>
+		<li id = "element" onclick="changeStyle()">Hit the gym. <span onclick="myFunction(event)" id = "cross" > &#10006 </span></li>
+		<li>Study for min 4 hours.<span onclick="myFunction(event)" id = "cross"> &#10006 </span> </li>
 	</ul>
 </body>
 <script>
@@ -115,11 +115,8 @@
     list.addEventListener('click', function(ev) {
        ev.target.classList.toggle('checked'); 
     });
-    /*var c = document.getElementById("cross");
-    var m;
-    for (m = 0; m < closebtns.length; m++) {
-       closebtns[m].addEventListener('click', function() {
-       this.parentElement.style.display = 'none';
-    });*/
+    function myFunction(event) { 
+        event.target.addEventListener('click', event.target.parentElement.remove()); 
+}
 </script>
 </html>
